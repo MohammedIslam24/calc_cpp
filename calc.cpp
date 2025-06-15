@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 using namespace std;
 
 int main() {
@@ -21,6 +22,17 @@ int main() {
             break;
         default: cout << "عملية غير صالحة!";
     }
+
+
+ofstream file("result.txt");
+file << "النتيجة: " << a << " " << op << " " << b << " = ";
+switch(op) {
+    case '+': file << a + b; break;
+    case '-': file << a - b; break;
+    case '*': file << a * b; break;
+    case '/': file << ((b != 0) ? a / b : 0); break;
+}
+file.close();
 
     cout << endl;
     return 0;
